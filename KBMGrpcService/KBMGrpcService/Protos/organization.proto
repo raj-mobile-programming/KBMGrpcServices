@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+option csharp_namespace = "KBMGrpcService.Protos";
+
+package organization;
+
+service OrganizationService {
+    rpc CreateOrganization(CreateOrganizationRequest) returns (CreateOrganizationResponse);
+    rpc GetOrganization(GetOrganizationRequest) returns (GetOrganizationResponse);
+}
+
+message CreateOrganizationRequest {
+    string name = 1;
+    string address = 2;
+}
+
+message CreateOrganizationResponse {
+    int64 organizationId = 1;
+}
+
+message GetOrganizationRequest {
+    int64 id = 1;
+}
+
+message GetOrganizationResponse {
+    string name = 1;
+    string address = 2;
+    int64 createdAt = 3;
+    int64 updatedAt = 4;
+}
+
+message QueryOrganizationsRequest {
+    int32 page = 1;
+    int32 pageSize = 2;
+    string orderBy = 3;
+    string direction = 4;
+    string queryString = 5;
+}
+
+message QueryOrganizationsResponse {
+    int32 page = 1;
+    int32 pageSize = 2;
+    int32 total = 3;
+    repeated OrganizationModel organizations = 4;
+}
+
+message OrganizationModel {
+    int64 id = 1;
+    string name = 2;
+    string address = 3;
+    int64 createdAt = 4;
+    int64 updatedAt = 5;
+    int64 deletedAt = 6;
+    bool isDeleted = 7;
+}
+
+message UpdateOrganizationRequest {
+    int64 organizationId = 1;
+    string name = 2;
+    string address = 3;
+}
+
+message UpdateOrganizationResponse {
+    string message = 1;
+}
+
+message DeleteOrganizationRequest {
+    int64 organizationId = 1;
+}
+
+message DeleteOrganizationResponse {
+    string message = 1;
+}

@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/KBMGrpcService/.vs/KBMGrpcService
+/KBMGrpcService/KBMGrpcService/bin/Debug/net6.0
+/KBMGrpcService/KBMGrpcService/obj
