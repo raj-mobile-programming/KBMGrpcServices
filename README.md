@@ -24,50 +24,29 @@ docker pull mcr.microsoft.com/mssql/server:2022-latest
 
 6. Run KBMGrpcService project, on the command window check the port for https.
 
-7.Update the port number for https on which KBMGrpcService is running in KBMHttpService.Program.cs file.
-
-8. Now run KBMHttpService project.
-
-9. Now you are ready to use the endpoints for Organization and for Users
+7. Now you KBMGrpcService project setup is ready to use for the endpoints of Organization and for Users.
 
 10. To run Unit Tests and Integration Tests
 In visual studio Click>Tests > Test Explorer > Run All Tests
 
 **Project Structure**
 
-├── KBMGrpcService
-│   ├── Protos
-│   │   └── (Proto files for gRPC services)
-│   ├── Services
-│   │   ├── OrganizationService.cs
-│   │   └── UserService.cs
-│   ├── Data
-│   │   ├── AppDbContext.cs
-│   │   └── Models
-│   │       ├── OrganizationModel.cs
-│   │       └── UserModel.cs
-│   ├── Tests
-│   │   ├── UnitTests
-│   │   │   ├── OrganizationServiceTests.cs
-│   │   │   └── UserServiceTests.cs
-│   │   └── IntegrationTests
-│   │       ├── OrganizationServiceIntegrationTests.cs
-│   │       └── UserServiceIntegrationTests.cs
-│   └── Program.cs
-├── KBMHttpService
-│   ├── Controllers
-│   │   ├── OrganizationsController.cs
-│   │   └── UsersController.cs
-│   ├── Models
-│   │   ├── OrganizationRequestModel.cs
-│   │   ├── UserRequestModel.cs
-│   │   └── (Response models)
-│   ├── Tests
-│   │   ├── UnitTests
-│   │   │   ├── OrganizationsControllerTests.cs
-│   │   │   └── UsersControllerTests.cs
-│   │   └── IntegrationTests
-│   │       ├── OrganizationsControllerIntegrationTests.cs
-│   │       └── UsersControllerIntegrationTests.cs
-│   └── Program.cs
-└── README.md
+── KBMGrpcService
+   ├── Protos
+   │   └── (Proto files for gRPC services)
+   ├── Services
+   │   ├── OrganizationService.cs
+   │   └── UserService.cs
+   ├── Data
+   │   ├── AppDbContext.cs
+   │   └── Models
+   │       ├── OrganizationModel.cs
+   │       └── UserModel.cs
+   ├── Tests
+   │   ├── UnitTests
+   │   │   ├── OrganizationServiceTests.cs
+   │   │   └── UserServiceTests.cs
+   │   └── IntegrationTests
+   │       ├── OrganizationServiceIntegrationTests.cs
+   │       └── UserServiceIntegrationTests.cs
+   └── Program.cs
