@@ -5,3 +5,5 @@
 /KBMGrpcService/.vs/KBMGrpcService
 /KBMGrpcService/KBMGrpcService/bin/Debug/net6.0
 /KBMGrpcService/KBMGrpcService/obj
+/KBMGrpcService/KBMGrpcService.Tests/obj
+/KBMGrpcService/KBMGrpcService.Tests/bin/Debug/net6.0
