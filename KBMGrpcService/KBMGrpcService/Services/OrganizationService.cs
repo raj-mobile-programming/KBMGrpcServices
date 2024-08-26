@@ -39,7 +39,7 @@ public class OrganizationService : KBMGrpcService.Protos.OrganizationService.Org
 
             return new CreateOrganizationResponse { OrganizationId = organization.Id };
         }
-        catch(RpcException ex)
+        catch (RpcException ex)
         {
             throw new RpcException(new Status(StatusCode.InvalidArgument, ex.Status.Detail));
         }
@@ -100,6 +100,60 @@ public class OrganizationService : KBMGrpcService.Protos.OrganizationService.Org
                 Total = total,
                 Organizations = { organizations }
             };
+        }
+        catch (RpcException ex)
+        {
+            throw new RpcException(new Status(StatusCode.InvalidArgument, ex.Status.Detail));
+        }
+    }
+    public async override Task<UpdateOrganizationResponse> UpdateOrganization(UpdateOrganizationRequest request, ServerCallContext context)
+    {
+        try
+        {
+            var organization = await _context.Organizations.FindAsync(request.OrganizationId);
+            if (organization == null || organization.IsDeleted)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound, "Organization not found."));
+            }
+
+            if (string.IsNullOrWhiteSpace(request.Name))
+            {
+                throw new RpcException(new Status(StatusCode.InvalidArgument, "Organization name is required."));
+            }
+
+            organization.Name = request.Name;
+            organization.Address = request.Address;
+            organization.UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            _context.Organizations.Update(organization);
+            await _context.SaveChangesAsync();
+
+            return new UpdateOrganizationResponse { Message = "Update organization successfully." };
+        }
+        catch (RpcException ex)
+        {
+            throw new RpcException(new Status(StatusCode.InvalidArgument, ex.Status.Detail));
+        }
+    }
+
+
+    public async override Task<DeleteOrganizationResponse> DeleteOrganization(DeleteOrganizationRequest request, ServerCallContext context)
+    {
+        try
+        {
+            var organization = await _context.Organizations.FindAsync(request.OrganizationId);
+            if (organization == null || organization.IsDeleted)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound, "Organization not found."));
+            }
+
+            organization.IsDeleted = true;
+            organization.DeletedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            _context.Organizations.Update(organization);
+            await _context.SaveChangesAsync();
+
+            return new DeleteOrganizationResponse { Message = "Organization deleted successfully." };
         }
         catch (RpcException ex)
         {
