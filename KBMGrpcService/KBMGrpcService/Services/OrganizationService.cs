@@ -128,7 +128,7 @@ public class OrganizationService : KBMGrpcService.Protos.OrganizationService.Org
             _context.Organizations.Update(organization);
             await _context.SaveChangesAsync();
 
-            return new UpdateOrganizationResponse { Message = "Update organization successfully." };
+            return new UpdateOrganizationResponse { Message = "Organization updated successfully." };
         }
         catch (RpcException ex)
         {

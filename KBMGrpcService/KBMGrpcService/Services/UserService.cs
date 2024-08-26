@@ -68,7 +68,7 @@ namespace KBMGrpcService.Services
                     Name = user.Name,
                     Username = user.Username,
                     Email = user.Email,
-                    CreatedAt = user.CreatedAt
+                    CreatedAt = user.CreatedAt,
                 };
             }
             catch (RpcException ex)

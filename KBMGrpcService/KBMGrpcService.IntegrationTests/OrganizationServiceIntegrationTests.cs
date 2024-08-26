@@ -83,7 +83,7 @@ public class OrganizationServiceIntegrationTests
 
         // Assert
         Assert.NotNull(response);
-        Assert.Equal("Update organization successfully.", response.Message);
+        Assert.Equal("Organization updated successfully.", response.Message);
 
         var updatedOrganization = await _context.Organizations.FindAsync(organization.Id);
         Assert.Equal("Updated Org", updatedOrganization.Name);

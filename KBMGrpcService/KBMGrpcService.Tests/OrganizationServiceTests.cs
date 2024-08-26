@@ -101,7 +101,7 @@ public class OrganizationServiceTests : IDisposable
         var response = await _service.UpdateOrganization(request, null);
 
         // Assert
-        Assert.Equal("Update organization successfully.", response.Message);
+        Assert.Equal("Organization updated successfully.", response.Message);
     }
 
     [Fact]

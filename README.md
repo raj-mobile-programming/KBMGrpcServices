@@ -1,11 +1,14 @@
 **Introduction**
+
 This assessment contains two projects one is KBMGrpcService and another one is KBMHttpService. These projects are developed on .Net Core 6.0 framework. 
-KBMGrpcService: This is a GRPC project which has the services for Organization and Users. There are all CRUD operations included in the GRPC project. It includes Unit tests and integration tests.
-KBMHttpService: This is a WebAPI project, which is consuming KBMGrpcService endpoints. This project includes all CRUD oprations of Organization and Users including association and disssociation of users with the organizations. 
+
+**KBMGrpcService:** This is a GRPC project which has the services for Organization and Users. There are all CRUD operations included in the GRPC project. It includes Unit tests and integration tests.
+
+**KBMHttpService:** This is a WebAPI project, which is consuming KBMGrpcService endpoints. This project includes all CRUD oprations of Organization and Users including association and disssociation of users with the organizations. 
 
 **Project Setup**
 
-1.Clone HTTP Services project repository using following link
+1. Clone HTTP Services project repository using following link
 KBMHttpService: https://github.com/raj-mobile-programming/KBMGrpcServices.git
 
 2. Install Docker desktop
@@ -18,8 +21,13 @@ docker pull mcr.microsoft.com/mssql/server:2022-latest
 
 5. Before first run of the KBMGrpcService project, run the migrations using following commands
 
---dotnet ef migrations add InitialCreate
---dotnet ef database update
+**For package manager**
+
+```update-database```
+
+**For command prompt**
+
+```dotnet ef database update```
 
 6. Run KBMGrpcService project, on the command window check the port for https.
 
@@ -28,24 +36,37 @@ docker pull mcr.microsoft.com/mssql/server:2022-latest
 10. To run Unit Tests and Integration Tests
 In visual studio Click>Tests > Test Explorer > Run All Tests
 
-**Project Structure**
+**Endpoints**
 
-── KBMGrpcService
-   ├── Protos
-   │   └── (Proto files for gRPC services)
-   ├── Services
-   │   ├── OrganizationService.cs
-   │   └── UserService.cs
-   ├── Data
-   │   ├── AppDbContext.cs
-   │   └── Models
-   │       ├── OrganizationModel.cs
-   │       └── UserModel.cs
-   ├── Tests
-   │   ├── UnitTests
-   │   │   ├── OrganizationServiceTests.cs
-   │   │   └── UserServiceTests.cs
-   │   └── IntegrationTests
-   │       ├── OrganizationServiceIntegrationTests.cs
-   │       └── UserServiceIntegrationTests.cs
-   └── Program.cs
+KBMGrpcService
+
+Create Organization
+
+Get Organization by ID
+
+Query Organizations (paginated)
+
+Update Organization
+
+Delete Organization
+
+Create User
+
+Get User by ID
+
+Query Users (paginated)
+
+Update User
+
+Delete User
+
+Associate User to Organization
+
+Disassociate User from Organization
+
+
+
+
+
+
+
