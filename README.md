@@ -5,8 +5,7 @@ KBMHttpService: This is a WebAPI project, which is consuming KBMGrpcService endp
 
 **Project Setup**
 
-1.Clone the repositories using following links:
-KBMGrpcService: https://github.com/raj-mobile-programming/KBMGrpcServices.git
+1.Clone HTTP Services project repository using following link
 KBMHttpService: https://github.com/raj-mobile-programming/KBMGrpcServices.git
 
 2. Install Docker desktop
