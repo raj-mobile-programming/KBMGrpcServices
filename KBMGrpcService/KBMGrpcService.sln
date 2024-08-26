@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBMGrpcService", "KBMGrpcSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBMGrpcService.Tests", "KBMGrpcService.Tests\KBMGrpcService.Tests.csproj", "{4508D8A2-A9BD-42E2-BEFA-92524FC281E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBMGrpcService.IntegrationTests", "KBMGrpcService.IntegrationTests\KBMGrpcService.IntegrationTests.csproj", "{16E43385-D2E1-41C7-BF90-16C396DB00CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4508D8A2-A9BD-42E2-BEFA-92524FC281E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4508D8A2-A9BD-42E2-BEFA-92524FC281E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4508D8A2-A9BD-42E2-BEFA-92524FC281E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E43385-D2E1-41C7-BF90-16C396DB00CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E43385-D2E1-41C7-BF90-16C396DB00CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E43385-D2E1-41C7-BF90-16C396DB00CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E43385-D2E1-41C7-BF90-16C396DB00CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,3 +7,5 @@
 /KBMGrpcService/KBMGrpcService/obj
 /KBMGrpcService/KBMGrpcService.Tests/obj
 /KBMGrpcService/KBMGrpcService.Tests/bin/Debug/net6.0
+/KBMGrpcService/KBMGrpcService.IntegrationTests/bin/Debug/net6.0
+/KBMGrpcService/KBMGrpcService.IntegrationTests/obj
