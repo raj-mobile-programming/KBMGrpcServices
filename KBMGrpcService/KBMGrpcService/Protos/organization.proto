@@ -7,6 +7,9 @@ package organization;
 service OrganizationService {
     rpc CreateOrganization(CreateOrganizationRequest) returns (CreateOrganizationResponse);
     rpc GetOrganization(GetOrganizationRequest) returns (GetOrganizationResponse);
+    rpc QueryOrganizations(QueryOrganizationsRequest) returns (QueryOrganizationsResponse);
+    rpc UpdateOrganization(UpdateOrganizationRequest) returns (UpdateOrganizationResponse);
+    rpc DeleteOrganization(DeleteOrganizationRequest) returns (DeleteOrganizationResponse);
 }
 
 message CreateOrganizationRequest {

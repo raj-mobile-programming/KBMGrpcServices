@@ -66,7 +66,44 @@ public class OrganizationService : KBMGrpcService.Protos.OrganizationService.Org
         {
             throw new RpcException(new Status(StatusCode.InvalidArgument, ex.Status.Detail));
         }
-
     }
+    //Query Organization
+    public override async Task<QueryOrganizationsResponse> QueryOrganizations(QueryOrganizationsRequest request, ServerCallContext context)
+    {
+        try
+        {
+            var query = _context.Organizations.Where(o => !o.IsDeleted);
 
+            if (!string.IsNullOrWhiteSpace(request.QueryString))
+            {
+                query = query.Where(o => o.Name.Contains(request.QueryString) || o.Address.Contains(request.QueryString));
+            }
+
+            var total = await query.CountAsync();
+            var organizations = await query
+                .OrderBy(o => request.OrderBy == "Name" ? o.Name : o.CreatedAt.ToString())
+                .Skip((request.Page - 1) * request.PageSize)
+                .Take(request.PageSize)
+                .Select(o => new OrganizationModel
+                {
+                    Id = o.Id,
+                    Name = o.Name,
+                    Address = o.Address,
+                    CreatedAt = o.CreatedAt
+                })
+                .ToListAsync();
+
+            return new QueryOrganizationsResponse
+            {
+                Page = request.Page,
+                PageSize = request.PageSize,
+                Total = total,
+                Organizations = { organizations }
+            };
+        }
+        catch (RpcException ex)
+        {
+            throw new RpcException(new Status(StatusCode.InvalidArgument, ex.Status.Detail));
+        }
+    }
 }
